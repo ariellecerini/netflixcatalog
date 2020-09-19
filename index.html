@@ -1,0 +1,158 @@
+
+<head>
+<script type="text/javascript" src="./jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+
+// var settings = {
+// 	"async": true,
+// 	"crossDomain": true,
+// 	"url": "https://unogs-unogs-v1.p.rapidapi.com/aaapi.cgi?q=get%253Anew3000-!1900%2C2020-!0%2C5-!0%2C10-!3063-!Any-!Any-!Any-!gt100-!&t=ns&cl=all&st=adv&ob=Relevance&p=2&sa=and",
+// 	"method": "GET",
+// 	"headers": {
+// 		"x-rapidapi-host": "unogs-unogs-v1.p.rapidapi.com",
+// 		"x-rapidapi-key": "8847b814e1msh090bcc00756cf21p14e6b4jsn4d5226f2efb2"
+//
+//   }
+// }
+
+// $.ajax(settings).done(function (response) {
+// 	console.log(response);
+// });
+
+//code copied from rapidapi https://rapidapi.com/unogs/api/unogs?endpoint=5690bcdee4b0e203818a6518
+//code works when you test it in the rapidapi dialog boxes, but when you run it through this file it does not return any results
+
+
+var settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://unogs-unogs-v1.p.rapidapi.com/aaapi.cgi?q=get%253Anew7-!1900%2C2018-!0%2C5-!0%2C10-!10673-!Any-!Any-!Any-!gt100-!%7Bdownloadable%7D&t=ns&cl=all&st=adv&ob=Relevance&p=1&sa=and",
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "unogs-unogs-v1.p.rapidapi.com",
+		"x-rapidapi-key": "8847b814e1msh090bcc00756cf21p14e6b4jsn4d5226f2efb2"
+	}
+}
+
+$.ajax(settings).done(function (response) {
+	console.log(response);
+});
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//code below is working to pull the genres and then use the list of genres to pull the titles-only pulls titles for the first genre category
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// var settings = {
+// 	"async": true,
+// 	"crossDomain": true,
+// 	"url": "https://unogs-unogs-v1.p.rapidapi.com/api.cgi?t=genres",
+// 	"method": "GET",
+// 	"headers": {
+// 		"x-rapidapi-host": "unogs-unogs-v1.p.rapidapi.com",
+// 		"x-rapidapi-key": "8847b814e1msh090bcc00756cf21p14e6b4jsn4d5226f2efb2"
+// 	}
+// }
+//
+// var currentGenre = 0;
+//
+//
+// $.ajax(settings).done(function (response) {
+// 	console.log(response);
+//   var pretty = "";
+//   // response.ITEMS.forEach(function(cheese){
+//   var cheese=response.ITEMS[currentGenre];
+//     var genre = Object.keys(cheese);
+//     if (genre.length > 0){
+//       genre = genre[0];
+//     }
+//     pretty += "<table class='flex-div'><tbody><tr>"
+//                 pretty+="<td>"+genre+"</td></tr>"
+//                 cheese[genre].forEach(function(cheeseHoles){
+//
+//                   getShowdata(genre, cheeseHoles);
+//                   pretty+="<tr><td>"+cheeseHoles+"</td></tr>";
+//                 })
+//                 pretty+="</tbody></table>"
+//
+//   // })
+//   // pretty += "<div>"+JSON.stringify(response).split("{").join("<br/>").split(",").join("<br/>")+"</div>";
+//   $(".flex-container").html(pretty);
+//
+// });
+//
+// function getShowdata (genreID, genre) {
+//
+// var showSet = {
+//   	"async": true,
+//   	"crossDomain": true,
+//   	"url": "https://unogs-unogs-v1.p.rapidapi.com/aaapi.cgi?q=get%253Anew3000-!1900%2C2020-!0%2C5-!0%2C10-!"+genreID+"-!Any-!Any-!Any-!gt100-!%7Bdownloadable%7D&t=ns&cl=all&st=adv&ob=Relevance&p=2&sa=and",
+//   	"method": "GET",
+//   	"headers": {
+//   		"x-rapidapi-host": "unogs-unogs-v1.p.rapidapi.com",
+//   		"x-rapidapi-key": "8847b814e1msh090bcc00756cf21p14e6b4jsn4d5226f2efb2"
+//   	}
+//   }
+//
+//   $.ajax(showSet).done(function (response) {
+//   	console.log(response);
+//   });
+//
+//
+// }
+</script>
+
+</head>
+<body>
+
+  <style>
+
+
+/*flex container styling*/
+
+.flex-container {
+  --width-mobile: 12;
+  display: -ms-flex;
+	display: -webkit-flex;
+	display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  height: inherit;
+  padding-right: 3vw;
+  padding-left: 3vw;
+}
+
+.column {
+  --columns: 12; /* number of columns in the grid system */
+  --width: var(--width-mobile, 0); /* default width of the element */
+  flex-basis: calc(var(--width) / var(--columns) * 100%);
+}
+
+@media (min-width: 576px) {
+  .column {
+    --width: var(--width-desktop, var(--width-mobile, 0));
+  }
+}
+
+.flex-div {
+  --width-desktop: 4;
+  --width-mobile: 12;
+  --width-tablet: 6;
+  padding: 1%;
+  align-items: center;
+  margin: 0 -10px;
+  max-width: 250px;
+}
+
+
+
+    </style>
+
+<div id="my_list">
+
+<div class="flex-container">
+
+  </div>
+</div>
+
+</body>
